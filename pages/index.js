@@ -21,7 +21,7 @@ const Index = () => {
                             <DrinkCard img="drink-2.png" name="Jack Daniel's" price="160.00" />
                         </div>
                         <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard name="Bebida 1" price="170.00" />
+                            <DrinkCard img="drink-3.png" name="Johnnie Walker" price="175.00" />
                         </div>
                         <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
                             <DrinkCard name="Bebida 2" price="170.00" />
