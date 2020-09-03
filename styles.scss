@@ -1,13 +1,3 @@
-.parallax {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.drinkCard {
-    &:hover {
-        filter: brightness(0.9);
-        cursor: pointer;
-    }
-}
+@import 'styles/content';
+@import 'styles/index';
+@import 'styles/product';

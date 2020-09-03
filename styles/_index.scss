@@ -1,0 +1,54 @@
+$laptopL-width: 82.875rem;
+$laptop-width: 64rem;
+$tablet-width: 48rem;
+$mobileL-width: 26.5625rem;
+
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.drinkCard {
+    &:hover {
+        filter: brightness(0.9);
+        cursor: pointer;
+    }
+}
+
+.drinkGridContainer {
+    max-width: $laptopL-width;
+    margin: 3rem;
+
+    @media (max-width: $mobileL-width) {
+        margin: 0.625rem;
+    }
+}
+
+.drinkGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.25rem;
+    row-gap: 1.25rem;
+
+    $before-tablet-width: $tablet-width - 0.0625rem;
+    $before-laptop-width: $laptop-width - 0.0625rem;
+    $before-laptopL-width: $laptopL-width - 0.0625rem;
+
+    @media (min-width: $laptop-width) and (max-width: $before-laptopL-width) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: $tablet-width) and (max-width: $before-laptop-width) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $before-tablet-width) { // mobileL
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    & > div {
+        height: 100%;
+        place-self: center;
+    }
+}

@@ -1,7 +1,12 @@
 import Content from '../components/Content';
 import DrinkCard from '../components/DrinkCard';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 const Index = () => {
+    // const dispatch = useDispatch();
+    const drinks = useSelector(store => store.drinks.drinks);
+
     return(
         <Content>
             <div className="d-flex flex-column">
@@ -11,38 +16,21 @@ const Index = () => {
                         <h4 className="text-white text-center" style={{ fontSize: '3.8vmin' }}>Las mejores bebidas al mejor precio en un solo lugar!</h4>
                     </div>
                 </div>
-                <div className="m-5">
-                    <h1 className="titulo">Bebidas</h1>
-                    <div className="row d-flex justify-content-center align-items-center">
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard img="https://next-app-bucket-2020.s3.us-east-2.amazonaws.com/drink-1.png" name="Jameson" price="170.00" />
+                <div className="w-100 d-flex justify-content-center">
+                    <div className="drinkGridContainer">
+                        <h1 className="titulo">Bebidas</h1>
+                        <div className="drinkGrid">
+                            {
+                                drinks.length !== 0 && drinks.map((f,i) => (
+                                    <div key={i} style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
+                                        <DrinkCard img={f.img} name={f.name} price={f.price.toFixed(2)} />
+                                    </div>
+                                ))
+                            }
                         </div>
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard img="https://next-app-bucket-2020.s3.us-east-2.amazonaws.com/drink-2.png" name="Jack Daniel's" price="160.00" />
-                        </div>
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard img="https://next-app-bucket-2020.s3.us-east-2.amazonaws.com/drink_3.jpg" name="Johnnie Walker" price="175.00" />
-                        </div>
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard name="Bebida 2" price="170.00" />
-                        </div>
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard img="drink-1.png" name="Jameson" price="170.00" />
-                        </div>
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard name="Cartavio" price="170.52" />
-                        </div>
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard name="Bebida 1" price="170.00" />
-                        </div>
-                        <div className="col-md-3 p-4" style={{ maxWidth: '18.125rem', minWidth: '18.125rem' }}>
-                            <DrinkCard name="Bebida 2" price="170.00" />
-                        </div>
-                    </div>
-                    <div className="row">
-                        
                     </div>
                 </div>
+                
             </div>
         </Content>
     )
